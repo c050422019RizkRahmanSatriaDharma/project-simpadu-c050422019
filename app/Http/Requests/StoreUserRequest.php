@@ -27,7 +27,7 @@ class StoreUserRequest extends FormRequest
             'password' => 'required',
             'handphone' => 'string',
             'address' => 'string',
-            'roles' => 'string',
+            'roles' => 'string', 
         ];
     }
 }

@@ -1,6 +1,8 @@
 <?php
 
+use App\Http\Controllers\Api\ScheduleController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,8 +26,29 @@ Route::middleware(['auth'])->group(function () {
         return view('pages.app.dashboard-simpadu', ['type_menu' => '']);
     })->name('home');
     Route::resource('user', UserController::class);
-    
+    Route::resource('subject', SubjectController::class);
+    Route::resource('schedule',ScheduleController::class);
 });
+
+Route::get('profile', function () {
+    return view('pages.app.features-profile', ['type_menu' => '']);
+});
+
+Route::get('settings', function () {
+    return view('pages.app.features-settings', ['type_menu' => '']);
+});
+
+Route::get('general-settings', function () {
+    return view('pages.app.features-setting-detail', ['type_menu' => '']);
+});
+
+// Route::get('/profile', function () {
+//     return view('pages.app.features-profile');
+//     })->name('profile');
+
+// Route::get('/login', function () {
+//     return view('pages.auth.auth-login');
+// })->name('login');
 
 
 
